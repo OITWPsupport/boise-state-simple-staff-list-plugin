@@ -3,7 +3,7 @@
 Plugin Name: Boise State Simple Staff List
 Plugin URI: www.boisestate.edu
 Description: A simple plugin to build and display a staff listing for your website, optimized for BSU.
-Version: 0.8
+Version: 0.1
 Author: Jen West
 
 */
@@ -41,14 +41,14 @@ add_theme_support( 'post-thumbnails', array( 'staff-member' ));
 // Register Activation/Deactivation Hooks
 //////////////////////////////*/
 
-// function location: /_inc/admin-install-uninstall.php
+// function location: /inc/admin-install-uninstall.php
 
 register_activation_hook( __FILE__, 'sslp_staff_member_activate' );
 register_deactivation_hook( __FILE__, 'sslp_staff_member_deactivate' );
 register_uninstall_hook( __FILE__, 'sslp_staff_member_uninstall' );
 
 // Need to check plugin version here and run sslp_staff_member_plugin_update()
-// function location: /_inc/admin-install-uninstall.php
+// function location: /inc/admin-install-uninstall.php
 if ( ! function_exists( 'get_plugins' ) )
 	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -259,7 +259,7 @@ function sslp_staff_member_featured_image_text() {
 /**
  * Adds MetaBoxes for staff-member
  * 
- * All metabox callback functions are located in _inc/admin-views.php
+ * All metabox callback functions are located in inc/admin-views.php
  *
  */
 

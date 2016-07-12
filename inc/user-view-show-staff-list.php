@@ -1,4 +1,8 @@
 <?php
+/*
+Plugin Name: Boise State Simple Staff List
+Plugin URI: www.boisestate.edu
+*/
 
 function sslp_staff_member_listing_shortcode_func($atts) {
 	extract(shortcode_atts(array(
