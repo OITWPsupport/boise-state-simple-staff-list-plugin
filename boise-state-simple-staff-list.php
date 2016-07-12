@@ -70,9 +70,6 @@ if ($sslp_ver_option == "" || $sslp_ver_option <= $plugin_version){
 // Enqueue Plugin Scripts and Styles
 //////////////////////////////*/
 
-/*
- *  Admin js action added on line 270 of this file (simple-staff-list.php)
- */
 
 function sslp_staff_member_admin_print_scripts() {
 	//** Admin Scripts
@@ -143,7 +140,7 @@ function sslp_staff_member_init() {
         'query_var' => true,
         'rewrite' => true,
         'capability_type' => 'page',
-        'has_archive' => true,
+        'has_archive' => false,
         'hierarchical' => false,
         'menu_position' => 100,
         'rewrite' => array('slug'=>'staff-members','with_front'=>false),

@@ -1,7 +1,9 @@
 # BSU_SimpleStaffList
 
 Author: Jen West
+
 Tags: staff list, staff directory, employee list, staff, employee, employees, Boise State 
+
 Requires at least: 3.0
 
 Tested up to: 4.1.1
@@ -18,7 +20,9 @@ A simple plugin to build and display a staff listing for your department at Bois
 
 
 ---- Thanks ----
+
 Thanks to Brett Shumaker for developing the original Simple Staff List plugin (http://wordpress.org/support/plugin/simple-staff-list , http://brettshumaker.com/)
+
 Thanks to Robby Milo for the initial streamlining of the plugin for Boise State.
 
 
