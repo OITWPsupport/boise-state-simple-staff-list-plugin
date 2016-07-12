@@ -101,14 +101,29 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 		}
 		
 		
-		$email_mailto = '<a class="staff-member-email" href="mailto:'.antispambot( $email ).'" title="Email '.$name.'">'.antispambot( $email ).'</a>';
-		$email_nolink = antispambot( $email );
-		
+		if ($email !== '') {
+			$email_mailto = '<a class="staff-member-email" href="mailto:'.antispambot( $email ).'" title="Email '.$name.'">'.antispambot( $email ).'</a>';
+			$email_nolink = antispambot( $email );
+		}
 		$accepted_single_tags = $default_tags;
-		$replace_single_values = array($name, $name_slug, $photo_url, $title, $email_nolink, $phone, $bio, $fb_url, $tw_url);
+		$replace_single_values_firstpass = array($name, $name_slug, $photo_url, $title, $email_nolink, $phone, $bio, $fb_url, $tw_url);
+		//Added in 11.6
+		$replace_single_values = array();
+		foreach($replace_single_values_firstpass as $value){
+			if ($value !== ''){
+				array_push($replace_single_values, $value);
+			}
+		}
 	
 		$accepted_formatted_tags = $default_formatted_tags;
-		$replace_formatted_values = array('<h3 class="staff-member-name">'.$name.'</h3>', '<h4 class="staff-member-position">'.$title.'</h4>', $photo, $email_mailto, $bio_format );
+		$replace_formatted_values_firstpass = array('<h3 class="staff-member-name">'.$name.'</h3>', '<h4 class="staff-member-position">'.$title.'</h4>', $photo, $email_mailto, $bio_format );
+		//Added in 11.6
+		$replace_formatted_values = array();
+		foreach($replace_formatted_values_firstpass as $value){
+			if ((($email_nolink !== '')&&(strncmp($value,"<a",2)))||($value !== '')){
+				array_push($replace_formatted_values, $value);
+			}
+		}
 	
 		$loop_markup = str_replace($accepted_single_tags, $replace_single_values, $loop_markup);
 		$loop_markup = str_replace($accepted_formatted_tags, $replace_formatted_values, $loop_markup);

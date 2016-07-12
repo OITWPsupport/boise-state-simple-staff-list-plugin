@@ -1,16 +1,18 @@
 === Simple Staff List ===
-Contributors: brettshumaker
+Contributors: brettshumaker, robby milo, jen west
 Donate link: http://brettshumaker.com/
 Tags: staff list, staff directory, employee list, staff, employee, employees
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 1.16
+Stable tag: 11.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A simple plugin to build and display a staff listing for your website.
 
 == Description ==
+
+**This plugin has been modified from the original version found on the WordPress site.  Please DO NOT update through WordPress, contact the BSU Help Desk to obtain the latest version.**
 
 The Simple Staff List plugin allows you to build a staff directory for your website. You get an easy-to-use interface
 which allows you to edit the following fields for each staff member: Name, Photo, Position, Email, Phone Number, and Bio.
@@ -48,6 +50,15 @@ Alright, here's a few things to try:
 5. Templates screen 2
 
 == Changelog ==
+
+= 11.6 =
+* UPDATED: Added deafault css file for public-facing staff list
+* UPDATED: Updated plugin author, version, title, and description
+* UPDATED: Added error handling in user-view-show-staff-list.php for empty header tags and emails
+
+= 11.5 =
+* REWRITE: Complete overhaul of plugin by Robby Milo
+
 
 = 1.16 =
 * UPDATED: Added translation support. (Thanks to grappler on GitHub)
