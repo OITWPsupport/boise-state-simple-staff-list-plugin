@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Simple Staff List (BSU version)
-Plugin URI: 
-Description: A simple plugin to build and display a staff listing for your website, optimized for BSU. Please don't update from WP site.
-Version: 11.6
-Author: Brett Shumaker (with Robby Milo & Jen West from BSU)
+Plugin Name: Boise State Simple Staff List
+Plugin URI: www.boisestate.edu
+Description: A simple plugin to build and display a staff listing for your website, optimized for BSU.
+Version: 0.1
+Author: Jen West
 
 */
 
@@ -17,11 +17,11 @@ Author: Brett Shumaker (with Robby Milo & Jen West from BSU)
 //////////////////////////////*/
 
 define( 'STAFFLIST_PATH', plugin_dir_url(__FILE__) );
-include_once('_inc/admin-install-uninstall.php');
-include_once('_inc/admin-views.php');
-include_once('_inc/admin-save-data.php');
-include_once('_inc/admin-utilities.php');
-include_once('_inc/user-view-show-staff-list.php');
+include_once('inc/admin-install-uninstall.php');
+include_once('inc/admin-views.php');
+include_once('inc/admin-save-data.php');
+include_once('inc/admin-utilities.php');
+include_once('inc/user-view-show-staff-list.php');
 
 
 
@@ -41,14 +41,14 @@ add_theme_support( 'post-thumbnails', array( 'staff-member' ));
 // Register Activation/Deactivation Hooks
 //////////////////////////////*/
 
-// function location: /_inc/admin-install-uninstall.php
+// function location: /inc/admin-install-uninstall.php
 
 register_activation_hook( __FILE__, 'sslp_staff_member_activate' );
 register_deactivation_hook( __FILE__, 'sslp_staff_member_deactivate' );
 register_uninstall_hook( __FILE__, 'sslp_staff_member_uninstall' );
 
 // Need to check plugin version here and run sslp_staff_member_plugin_update()
-// function location: /_inc/admin-install-uninstall.php
+// function location: /inc/admin-install-uninstall.php
 if ( ! function_exists( 'get_plugins' ) )
 	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
@@ -70,13 +70,10 @@ if ($sslp_ver_option == "" || $sslp_ver_option <= $plugin_version){
 // Enqueue Plugin Scripts and Styles
 //////////////////////////////*/
 
-/*
- *  Admin js action added on line 270 of this file (simple-staff-list.php)
- */
 
 function sslp_staff_member_admin_print_scripts() {
 	//** Admin Scripts
-	wp_register_script( 'staff-member-admin-scripts', STAFFLIST_PATH . '_js/staff-member-admin-scripts.js', array('jquery', 'jquery-ui-sortable' ), '1.0', false );
+	wp_register_script( 'staff-member-admin-scripts', STAFFLIST_PATH . 'js/staff-member-admin-scripts.js', array('jquery', 'jquery-ui-sortable' ), '1.0', false );
 	wp_enqueue_script( 'staff-member-admin-scripts' );
 }
 
@@ -84,7 +81,7 @@ add_action( 'admin_enqueue_scripts', 'sslp_staff_member_admin_enqueue_styles' );
 
 function sslp_staff_member_admin_enqueue_styles() {
 	//** Admin Styles
-	wp_register_style( 'staff-list-css', STAFFLIST_PATH . '_css/admin-staff-list.css' );
+	wp_register_style( 'staff-list-css', STAFFLIST_PATH . 'css/admin-staff-list.css' );
 	wp_enqueue_style ( 'staff-list-css' );
 }
 
@@ -92,7 +89,7 @@ add_action( 'wp_enqueue_scripts', 'sslp_staff_member_public_enqueue_styles');
 
 function sslp_staff_member_public_enqueue_styles() {
 	//** Front-end/Public facing Styles
-	wp_register_style( 'staff-list-public-css', STAFFLIST_PATH . '_css/public-staff-list.css' );
+	wp_register_style( 'staff-list-public-css', STAFFLIST_PATH . 'css/public-staff-list.css' );
 	wp_enqueue_style ( 'staff-list-public-css' );
 }
 
@@ -143,7 +140,7 @@ function sslp_staff_member_init() {
         'query_var' => true,
         'rewrite' => true,
         'capability_type' => 'page',
-        'has_archive' => true,
+        'has_archive' => false,
         'hierarchical' => false,
         'menu_position' => 100,
         'rewrite' => array('slug'=>'staff-members','with_front'=>false),
@@ -259,7 +256,7 @@ function sslp_staff_member_featured_image_text() {
 /**
  * Adds MetaBoxes for staff-member
  * 
- * All metabox callback functions are located in _inc/admin-views.php
+ * All metabox callback functions are located in inc/admin-views.php
  *
  */
 

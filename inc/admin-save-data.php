@@ -1,5 +1,8 @@
 <?php
-
+/*
+Plugin Name: Boise State Simple Staff List
+Plugin URI: www.boisestate.edu
+*/
 
 /*
 // Save Post Data

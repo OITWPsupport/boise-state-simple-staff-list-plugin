@@ -1,4 +1,8 @@
 <?php
+/*
+Plugin Name: Boise State Simple Staff List
+Plugin URI: www.boisestate.edu
+*/
 
 function sslp_staff_member_listing_shortcode_func($atts) {
 	extract(shortcode_atts(array(
@@ -82,9 +86,9 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 		$phone 		= $custom["_staff_member_phone"][0];
 		$bio 		= $custom["_staff_member_bio"][0];
 		$fb_url		= $custom["_staff_member_fb"][0];
-		$tw_url		= 'http://www.twitter.com/' . $custom["_staff_member_tw"][0];
+		$tw_url		= $custom["_staff_member_tw"][0];
 		
-		
+		//printf("Initial values: name: $name/slug: $name_slug/title: $title/email: $email/phone: $phone/bio: $bio/fb: $fb_url/tw: $tw_url<p/>");
 		
 		if(has_post_thumbnail()){
 			
@@ -105,25 +109,26 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 			$email_mailto = '<a class="staff-member-email" href="mailto:'.antispambot( $email ).'" title="Email '.$name.'">'.antispambot( $email ).'</a>';
 			$email_nolink = antispambot( $email );
 		}
+		else {
+			$email_mailto = '';
+		}
+
 		$accepted_single_tags = $default_tags;
-		$replace_single_values_firstpass = array($name, $name_slug, $photo_url, $title, $email_nolink, $phone, $bio, $fb_url, $tw_url);
-		//Added in 11.6
-		$replace_single_values = array();
-		foreach($replace_single_values_firstpass as $value){
-			if ($value !== ''){
-				array_push($replace_single_values, $value);
-			}
-		}
+		$replace_single_values = array($name, $name_slug, $photo_url, $title, $email_nolink, $phone, $bio, $fb_url, $tw_url);
 	
-		$accepted_formatted_tags = $default_formatted_tags;
-		$replace_formatted_values_firstpass = array('<h3 class="staff-member-name">'.$name.'</h3>', '<h4 class="staff-member-position">'.$title.'</h4>', $photo, $email_mailto, $bio_format );
-		//Added in 11.6
-		$replace_formatted_values = array();
-		foreach($replace_formatted_values_firstpass as $value){
-			if ((($email_nolink !== '')&&(strncmp($value,"<a",2)))||($value !== '')){
-				array_push($replace_formatted_values, $value);
-			}
+		//replace with formatted values
+		if ($tw_url !== '') {
+			$tw_url = 'http://www.twitter.com/' . $tw_url;
 		}
+		if ($name !== '') {
+			$name = '<h3 class="staff-member-name">'.$name.'</h3>';
+		}
+		if ($title !== '') {
+			$title = '<h4 class="staff-member-position">'.$title.'</h4>';
+		}
+
+		$accepted_formatted_tags = $default_formatted_tags;
+		$replace_formatted_values = array($name, $title, $photo, $email_mailto, $bio_format );
 	
 		$loop_markup = str_replace($accepted_single_tags, $replace_single_values, $loop_markup);
 		$loop_markup = str_replace($accepted_formatted_tags, $replace_formatted_values, $loop_markup);

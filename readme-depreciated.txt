@@ -1,3 +1,5 @@
+****THIS README IS DEPRECIATED.  Please use README.md****
+
 === Simple Staff List ===
 Contributors: brettshumaker, robby milo, jen west
 Donate link: http://brettshumaker.com/
