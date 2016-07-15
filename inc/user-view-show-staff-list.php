@@ -86,9 +86,9 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 		$phone 		= $custom["_staff_member_phone"][0];
 		$bio 		= $custom["_staff_member_bio"][0];
 		$fb_url		= $custom["_staff_member_fb"][0];
-				$tw_url		= $custom["_staff_member_tw"][0];
+		$tw_url		= $custom["_staff_member_tw"][0];
 		
-		printf("Initial values: name: $name/slug: $name_slug/title: $title/email: $email/phone: $phone/bio: $bio/fb: $fb_url/tw: $tw_url<p/>");
+		//printf("Initial values: name: $name/slug: $name_slug/title: $title/email: $email/phone: $phone/bio: $bio/fb: $fb_url/tw: $tw_url<p/>");
 		
 		if(has_post_thumbnail()){
 			
