@@ -311,7 +311,7 @@ function sslp_staff_member_template_page(){
 
     $output .= '<br />';
         
-    $output .= '<p>' . __( 'These <strong>MUST</strong> be used inside the <code>[staff_loop]</code> wrapper. The unformatted tags will return plain strings so you will want to wrap them in your own HTML. The <code>[staff_loop]</code> can accept any HTML so be careful when adding your own HTML code. The formatted tags will return data wrapped in HTML elements. For example, <code>[staff-name-formatted]</code> returns <code>&lt;h3&gt;STAFF-NAME&lt;/h3&gt;</code>, and <code>[staff-email-link]</code> returns <code>&lt;a href="mailto:STAFF-EMAIL" title="Email STAFF-NAME"&gt;STAFF-EMAIL&lt;/a&gt;</code>.' ) . '</p>';
+    $output .= '<p>' . __( 'These <strong>MUST</strong> be used inside the <code>[staff_loop]</code> wrapper. The unformatted tags will return plain strings so you will want to wrap them in your own HTML. The <code>[staff_loop]</code> can accept any HTML so be careful when adding your own HTML code. The formatted tags will return data wrapped in HTML elements. For example, <code>[staff-name-formatted]</code> returns <code>&lt;div&gt;STAFF-NAME&lt;/div&gt;</code>, and <code>[staff-email-link]</code> returns <code>&lt;a href="mailto:STAFF-EMAIL" title="Email STAFF-NAME"&gt;STAFF-EMAIL&lt;/a&gt;</code>.' ) . '</p>';
     $output .= '<p>' . __( '**Note: All emails are obfuscated using the <a href="http://codex.wordpress.org/Function_Reference/antispambot" target="_blank" title="WordPress email obfuscation function: antispambot()">antispambot() WordPress function</a>.' ) . '</p>';
     $output .= '<br />';
     
