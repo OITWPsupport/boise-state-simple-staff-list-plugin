@@ -121,10 +121,10 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 			$tw_url = 'http://www.twitter.com/' . $tw_url;
 		}
 		if ($name !== '') {
-			$name = '<h3 class="staff-member-name">'.$name.'</h3>';
+			$name = '<div class="staff-member-name">'.$name.'</div>';
 		}
 		if ($title !== '') {
-			$title = '<h4 class="staff-member-position">'.$title.'</h4>';
+			$title = '<div class="staff-member-position">'.$title.'</div>';
 		}
 
 		$accepted_formatted_tags = $default_formatted_tags;

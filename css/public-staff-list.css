@@ -1,3 +1,23 @@
 .staff-member-photo {
 	width: 300px;
 }
+
+.staff-member-name {
+	line-height: 130%;
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+	color: #0169a4;
+	font-family: "Lato", sans-serif;
+}
+
+.staff-member-position {
+	font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 125%;
+    margin-bottom: 8px;
+	color: #0169a4;
+	font-family: "Lato", sans-serif;
+}
