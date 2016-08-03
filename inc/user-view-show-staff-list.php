@@ -134,6 +134,7 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 		$loop_markup = str_replace($accepted_single_tags, $replace_single_values, $loop_markup);
 		$loop_markup = str_replace($accepted_formatted_tags, $replace_formatted_values, $loop_markup);
       
+	    $output .= $loop_markup;
       
 		$loop_markup = $loop_markup_reset;
 		
