@@ -17,7 +17,7 @@ Plugin URI: www.boisestate.edu
  *
  */
 
-function sslp_staff_member_info_meta_box(){
+function boise_state_ssl_staff_member_info_meta_box(){
 	global $post;
 	$custom = get_post_custom($post->ID);
 	$_staff_member_title = $custom["_staff_member_title"][0];
@@ -27,7 +27,7 @@ function sslp_staff_member_info_meta_box(){
 	$_staff_member_tw	 = $custom["_staff_member_tw"][0];
 	?>
 
-	<div class="sslp_admin_wrap">
+	<div class="boise_state_ssl_admin_wrap">
 		<label for="_staff-member-title"><?php _e( 'Position:', 'simple-staff-list' ); ?> <input type="text" name="_staff_member_title" id="_staff_member_title" placeholder="<?php if ($_staff_member_title == '') _e( 'Staff Member\'s Position', 'simple-staff-list' ); ?>" value="<?php if ($_staff_member_title != '') echo $_staff_member_title; ?>" /></label>
 		<label for="_staff-member-email"><?php _e( 'Email:', 'simple-staff-list' ); ?> <input type="text" name="_staff_member_email" id="_staff_member_email" placeholder="<?php if ($_staff_member_email == '') _e( 'Staff Member\'s Email', 'simple-staff-list' ); ?>" value="<?php if ($_staff_member_email != '') echo $_staff_member_email; ?>" /></label>
 		<label for="_staff-member-title"><?php _e( 'Phone:', 'simple-staff-list' ); ?> <input type="text" name="_staff_member_phone" id="_staff_member_phone" placeholder="<?php if ($_staff_member_phone == '') _e( 'Staff Member\'s Phone', 'simple-staff-list' ); ?>" value="<?php if ($_staff_member_phone != '') echo $_staff_member_phone; ?>" /></label>
@@ -44,7 +44,7 @@ function sslp_staff_member_info_meta_box(){
 // Warning Meta Box
 //////////////////////////////*/
 
-function sslp_staff_member_warning_meta_box() {
+function boise_state_ssl_staff_member_warning_meta_box() {
 	_e( '<p><strong>Your current theme does not support post thumbnails. Unfortunately, you will not be able to add photos for your Staff Members</strong></p>', 'simple-staff-list' );
 }
 
@@ -55,7 +55,7 @@ function sslp_staff_member_warning_meta_box() {
 // Bio Meta Box
 //////////////////////////////*/
 
-function sslp_staff_member_bio_meta_box(){
+function boise_state_ssl_staff_member_bio_meta_box(){
 	global $post;
 	$custom = get_post_custom($post->ID);
 	$_staff_member_bio = $custom["_staff_member_bio"][0];
@@ -70,7 +70,7 @@ function sslp_staff_member_bio_meta_box(){
 	
 	<p class="sslp-note">**Note: HTML is allowed.</p>
 	
-	<?php wp_nonce_field('sslp_post_nonce', 'sslp_add_edit_staff_member_noncename') ?>
+	<?php wp_nonce_field('boise_state_ssl_post_nonce', 'boise_state_ssl_add_edit_staff_member_noncename') ?>
 	
 	<?php
 }
@@ -82,9 +82,9 @@ function sslp_staff_member_bio_meta_box(){
 // Staff List Custom Column View
 //////////////////////////////*/
 
-add_action( "manage_posts_custom_column", "sslp_staff_member_display_custom_columns");
+add_action( "manage_posts_custom_column", "boise_state_ssl_staff_member_display_custom_columns");
 
-function sslp_staff_member_display_custom_columns( $column ) {
+function boise_state_ssl_staff_member_display_custom_columns( $column ) {
   global $post;
   $custom = get_post_custom();
   
@@ -121,7 +121,7 @@ function sslp_staff_member_display_custom_columns( $column ) {
 // Build the 'Ordering' Page
 //////////////////////////////*/
 
-function sslp_staff_member_order_page() {
+function boise_state_ssl_staff_member_order_page() {
 ?>
 	<div class="wrap">
 		<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>Boise State Simple Staff List</h2>
@@ -191,7 +191,7 @@ function sslp_staff_member_order_page() {
 // Build the 'Usage' Page
 //////////////////////////////*/
 
-function sslp_staff_member_usage_page() {
+function boise_state_ssl_staff_member_usage_page() {
 	
 	$output .= '<div class="wrap sslp-usage">';
 	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Boise State Simple Staff List', 'boise-state-simple-staff-list' ) . '</h2>';
@@ -223,7 +223,7 @@ function sslp_staff_member_usage_page() {
 // Build the 'Templates' Page
 //////////////////////////////*/
 
-function sslp_staff_member_template_page(){ 
+function boise_state_ssl_staff_member_template_page(){ 
 
 	// Get options for default HTML CSS
 	$default_html 					= get_option('_staff_listing_default_html');
@@ -359,7 +359,7 @@ function sslp_staff_member_template_page(){
 // Build the 'Options' Page
 //////////////////////////////*/
 
-function sslp_staff_member_options_page(){ 
+function boise_state_ssl_staff_member_options_page(){ 
 
 	// Get existing options
 	$default_slug 					= get_option('_staff_listing_default_slug');

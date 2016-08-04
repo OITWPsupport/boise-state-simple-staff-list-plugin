@@ -52,7 +52,7 @@ function format_phone($number)
 // Get all Taxonomies for staff-member
 //////////////////////////////*/
  
-function get_sslp_terms($tax) {
+function get_boise_state_ssl_terms($tax) {
     $terms = get_terms($tax);
     $names = array();
     

@@ -23,7 +23,7 @@ Plugin URI: www.boisestate.edu
  * @param    array     $default_formatted_tag_string  	stores imploded, comma delimited $default_formatted_tags
  * 
  */
-function sslp_staff_member_activate($is_forced){
+function boise_state_ssl_staff_member_activate($is_forced){
 	
 	$default_template = '
 [staff_loop]
@@ -177,7 +177,7 @@ div.staff-member { display: block; }
  * Nothing but flushing rewrite rules right now
  *
  */
-function sslp_staff_member_deactivate(){
+function boise_state_ssl_staff_member_deactivate(){
 	flush_rewrite_rules();
 }
 
@@ -187,7 +187,7 @@ function sslp_staff_member_deactivate(){
  * Remove our options from the database.
  *
  */
-function sslp_staff_member_uninstall(){
+function boise_state_ssl_staff_member_uninstall(){
 	delete_option('_staff_listing_default_tags');
 	delete_option('_staff_listing_default_tag_string');
 	delete_option('_staff_listing_default_formatted_tags');
@@ -206,9 +206,9 @@ function sslp_staff_member_uninstall(){
  * Initially created to fix option naming inconsistency in v1.01
  *
  */
-function sslp_staff_member_plugin_update($sslp_ver_option, $plugin_version){
+function boise_state_ssl_staff_member_plugin_update($boise_state_ssl_ver_option, $plugin_version){
 
-	if ($sslp_ver_option == "" || $plugin_version == "1.01") {
+	if ($boise_state_ssl_ver_option == "" || $plugin_version == "1.01") {
 	
 		$bad_cus_html = get_option('staff_listing_custom_html');
 		$good_cus_html = get_option('_staff_listing_custom_html');
@@ -227,7 +227,7 @@ function sslp_staff_member_plugin_update($sslp_ver_option, $plugin_version){
 	
 	// Updating the default CSS and Template
 	
-	if ($sslp_ver_option == "" || $plugin_version <= "1.10") {
+	if ($boise_state_ssl_ver_option == "" || $plugin_version <= "1.10") {
 	
 		$default_css = '
 /*  div wrapped around entire staff list  */
@@ -332,12 +332,12 @@ div.staff-member { display: block; }
 	
 	}
 	
-	if ($sslp_ver_option == "" || $plugin_version <= "1.12") {
+	if ($boise_state_ssl_ver_option == "" || $plugin_version <= "1.12") {
 		update_option('_staff_listing_write_external_css', "yes");
 	}
 		
 	update_option('_simple_staff_list_version', $plugin_version);
-	sslp_staff_member_activate('forced activation');
+	boise_state_ssl_staff_member_activate('forced activation');
 }
 
 ?>

@@ -1,12 +1,12 @@
 <?php
-/*
-Plugin Name: Boise State Simple Staff List
-Plugin URI: www.boisestate.edu
-Description: A simple plugin to build and display a staff listing for your website, optimized for BSU.
-Version: 0.8
-Author: Jen West
 
-*/
+/**
+* Plugin Name:	Boise State Simple Staff List
+* Plugin URI:	www.boisestate.edu
+* Description:	A simple plugin to build and display a staff listing for your website, optimized for BSU.
+* Version:		0.8
+* Author:		Jen West
+**/
 
 
 
@@ -43,23 +43,23 @@ add_theme_support( 'post-thumbnails', array( 'staff-member' ));
 
 // function location: /inc/admin-install-uninstall.php
 
-register_activation_hook( __FILE__, 'sslp_staff_member_activate' );
-register_deactivation_hook( __FILE__, 'sslp_staff_member_deactivate' );
-register_uninstall_hook( __FILE__, 'sslp_staff_member_uninstall' );
+register_activation_hook( __FILE__, 'boise_state_ssl_staff_member_activate' );
+register_deactivation_hook( __FILE__, 'boise_state_ssl_staff_member_deactivate' );
+register_uninstall_hook( __FILE__, 'boise_state_ssl_staff_member_uninstall' );
 
-// Need to check plugin version here and run sslp_staff_member_plugin_update()
+// Need to check plugin version here and run boise_state_ssl_staff_member_plugin_update()
 // function location: /inc/admin-install-uninstall.php
-if ( ! function_exists( 'get_plugins' ) )
+/*if ( ! function_exists( 'get_plugins' ) )
 	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 $plugin_folder = get_plugins( '/' . plugin_basename( dirname( __FILE__ ) ) );
 $plugin_file = basename( ( __FILE__ ) );
 $plugin_version = $plugin_folder[$plugin_file]['Version'];    
-$sslp_ver_option = get_option('_simple_staff_list_version');
-if ($sslp_ver_option == "" || $sslp_ver_option <= $plugin_version){
-	sslp_staff_member_plugin_update($sslp_ver_option, $plugin_version);
+$boise_state_ssl_ver_option = get_option('_simple_staff_list_version');
+if ($boise_state_ssl_ver_option == "" || $boise_state_ssl_ver_option <= $plugin_version){
+	boise_state_ssl_staff_member_plugin_update($boise_state_ssl_ver_option, $plugin_version);
 }
-
+*/
 // End plugin version check
 
 
@@ -71,31 +71,31 @@ if ($sslp_ver_option == "" || $sslp_ver_option <= $plugin_version){
 //////////////////////////////*/
 
 
-function sslp_staff_member_admin_print_scripts() {
+function boise_state_ssl_staff_member_admin_print_scripts() {
 	//** Admin Scripts
 	wp_register_script( 'staff-member-admin-scripts', STAFFLIST_PATH . 'js/staff-member-admin-scripts.js', array('jquery', 'jquery-ui-sortable' ), '1.0', false );
 	wp_enqueue_script( 'staff-member-admin-scripts' );
 }
 
-add_action( 'admin_enqueue_scripts', 'sslp_staff_member_admin_enqueue_styles' );
+add_action( 'admin_enqueue_scripts', 'boise_state_ssl_staff_member_admin_enqueue_styles' );
 
-function sslp_staff_member_admin_enqueue_styles() {
+function boise_state_ssl_staff_member_admin_enqueue_styles() {
 	//** Admin Styles
 	wp_register_style( 'staff-list-css', STAFFLIST_PATH . 'css/admin-staff-list.css' );
 	wp_enqueue_style ( 'staff-list-css' );
 }
 
-add_action( 'wp_enqueue_scripts', 'sslp_staff_member_public_enqueue_styles');
+add_action( 'wp_enqueue_scripts', 'boise_state_ssl_staff_member_public_enqueue_styles');
 
-function sslp_staff_member_public_enqueue_styles() {
+function boise_state_ssl_staff_member_public_enqueue_styles() {
 	//** Front-end/Public facing Styles
 	wp_register_style( 'staff-list-public-css', STAFFLIST_PATH . 'css/public-staff-list.css' );
 	wp_enqueue_style ( 'staff-list-public-css' );
 }
 
-add_action( 'wp_enqueue_scripts', 'sslp_staff_member_enqueue_styles');
+add_action( 'wp_enqueue_scripts', 'boise_state_ssl_staff_member_enqueue_styles');
 
-function sslp_staff_member_enqueue_styles(){
+function boise_state_ssl_staff_member_enqueue_styles(){
 	//** Front-end Custom Style
 	if (get_option('_staff_listing_write_external_css') == "yes") {
 		wp_register_style( 'staff-list-custom-css', get_stylesheet_directory_uri() . '/simple-staff-list-custom.css' );
@@ -111,9 +111,9 @@ function sslp_staff_member_enqueue_styles(){
 // Setup Our Staff Member CPT
 //////////////////////////////*/
 
-add_action( 'init', 'sslp_staff_member_init' );
+add_action( 'init', 'boise_state_ssl_staff_member_init' );
 
-function sslp_staff_member_init() {
+function boise_state_ssl_staff_member_init() {
     $labels = array(
         'name' => _x('Staff Members', 'post type general name'),
         'singular_name' => _x('Staff Member', 'post type singular name'),
@@ -158,9 +158,9 @@ function sslp_staff_member_init() {
 // Setup Our Staff Group Taxonomy
 //////////////////////////////*/
 
-add_action( 'init', 'sslp_custom_tax' );
+add_action( 'init', 'boise_state_ssl_custom_tax' );
 
-function sslp_custom_tax() {
+function boise_state_ssl_custom_tax() {
 	
 	$labels = array(
 		'name' => _x( 'Groups', 'taxonomy general name' ),
@@ -193,8 +193,8 @@ function sslp_custom_tax() {
 //////////////////////////////*/
 
 // Change what's hidden by default
-add_filter('default_hidden_meta_boxes', 'hide_meta_lock', 10, 2);
-function hide_meta_lock($hidden, $screen) {
+add_filter('default_hidden_meta_boxes', 'boise_state_ssl_hide_meta_lock', 10, 2);
+function boise_state_ssl_hide_meta_lock($hidden, $screen) {
         if ( $screen->base == 'staff-member' )
                 $hidden = array( 'postexcerpt' );
         return $hidden;
@@ -217,8 +217,8 @@ function hide_meta_lock($hidden, $screen) {
  * @return   string               	returns new placeholder text for "Enter title here" input
  */
  
-add_filter( 'enter_title_here', 'sslp_staff_member_change_title' );
-function sslp_staff_member_change_title( $title ){
+add_filter( 'enter_title_here', 'boise_state_ssl_staff_member_change_title' );
+function boise_state_ssl_staff_member_change_title( $title ){
     $screen = get_current_screen();
     if ( $screen->post_type == 'staff-member' ) {
         $title = 'Staff Name';
@@ -241,14 +241,14 @@ function sslp_staff_member_change_title( $title ){
  * 
  */
  
-add_action('do_meta_boxes', 'sslp_staff_member_featured_image_text');
-function sslp_staff_member_featured_image_text() {
+add_action('do_meta_boxes', 'boise_state_ssl_staff_member_featured_image_text');
+function boise_state_ssl_staff_member_featured_image_text() {
 
     remove_meta_box( 'postimagediv', 'staff-member', 'side' );
     if (current_theme_supports('post-thumbnails')) {
 	    add_meta_box('postimagediv', __('Staff Photo'), 'post_thumbnail_meta_box', 'staff-member', 'normal', 'high');
 	} else {
-		add_meta_box('staff-member-warning', __('Staff Photo'), 'sslp_staff_member_warning_meta_box', 'staff-member', 'normal', 'high');
+		add_meta_box('staff-member-warning', __('Staff Photo'), 'boise_state_ssl_staff_member_warning_meta_box', 'staff-member', 'normal', 'high');
 	}
 }
 
@@ -260,12 +260,12 @@ function sslp_staff_member_featured_image_text() {
  *
  */
 
-add_action('do_meta_boxes', 'sslp_staff_member_add_meta_boxes');
-function sslp_staff_member_add_meta_boxes() {
+add_action('do_meta_boxes', 'boise_state_ssl_staff_member_add_meta_boxes');
+function boise_state_ssl_staff_member_add_meta_boxes() {
 
-    add_meta_box('staff-member-info', __('Staff Member Info'), 'sslp_staff_member_info_meta_box', 'staff-member', 'normal', 'high');
+    add_meta_box('staff-member-info', __('Staff Member Info'), 'boise_state_ssl_staff_member_info_meta_box', 'staff-member', 'normal', 'high');
     
-    add_meta_box('staff-member-bio', __('Staff Member Bio'), 'sslp_staff_member_bio_meta_box', 'staff-member', 'normal', 'high');
+    add_meta_box('staff-member-bio', __('Staff Member Bio'), 'boise_state_ssl_staff_member_bio_meta_box', 'staff-member', 'normal', 'high');
 }
 
 
@@ -284,8 +284,8 @@ function sslp_staff_member_add_meta_boxes() {
  * @return   array             Column titles
  */
  
-add_filter( "manage_staff-member_posts_columns", "sslp_staff_member_custom_columns" );
-function sslp_staff_member_custom_columns( $cols ) {
+add_filter( "manage_staff-member_posts_columns", "boise_state_ssl_staff_member_custom_columns" );
+function boise_state_ssl_staff_member_custom_columns( $cols ) {
 	$cols = array(
 		'cb'				  =>     '<input type="checkbox" />',
 		'title'				  => __( 'Name' ),
@@ -317,14 +317,14 @@ function sslp_staff_member_custom_columns( $cols ) {
  * 
  */
  
-add_action( 'admin_menu', 'sslp_staff_member_register_menu' );
-function sslp_staff_member_register_menu() {
+add_action( 'admin_menu', 'boise_state_ssl_staff_member_register_menu' );
+function boise_state_ssl_staff_member_register_menu() {
 	$order_page 	= add_submenu_page(
 						'edit.php?post_type=staff-member',
 						'Order Staff Members',
 						'Order',
 						'edit_pages', 'staff-member-order',
-						'sslp_staff_member_order_page'
+						'boise_state_ssl_staff_member_order_page'
 					);
 	
 	$templates_page = add_submenu_page(
@@ -332,7 +332,7 @@ function sslp_staff_member_register_menu() {
 						'Display Templates',
 						'Templates',
 						'edit_pages', 'staff-member-template',
-						'sslp_staff_member_template_page'
+						'boise_state_ssl_staff_member_template_page'
 					);
 	
 	$usage_page 	= add_submenu_page(
@@ -340,11 +340,11 @@ function sslp_staff_member_register_menu() {
 						'Simple Staff List Usage',
 						'Usage',
 						'edit_pages', 'staff-member-usage',
-						'sslp_staff_member_usage_page'
+						'boise_state_ssl_staff_member_usage_page'
 					);
 	
-	add_action( 'admin_print_scripts-'.$order_page, 'sslp_staff_member_admin_print_scripts' );
-	add_action( 'admin_print_scripts-'.$templates_page, 'sslp_staff_member_admin_print_scripts' );
+	add_action( 'admin_print_scripts-'.$order_page, 'boise_state_ssl_staff_member_admin_print_scripts' );
+	add_action( 'admin_print_scripts-'.$templates_page, 'boise_state_ssl_staff_member_admin_print_scripts' );
 }
 
 
@@ -355,12 +355,12 @@ function sslp_staff_member_register_menu() {
 // Make Sure We Add The Custom CSS File on Theme Switch
 //////////////////////////////*/
 
-function sslp_staff_member_create_css_on_switch_theme($new_theme) {
+function boise_state_ssl_staff_member_create_css_on_switch_theme($new_theme) {
     $filename = get_stylesheet_directory() . '/simple-staff-list-custom.css';
     $custom_css = get_option('_staff_listing_custom_css');
     file_put_contents($filename, $custom_css);
 }
 if ( get_option('_staff_listing_write_external_css') == 'yes' ){
-	add_action('switch_theme', 'sslp_staff_member_create_css_on_switch_theme');
+	add_action('switch_theme', 'boise_state_ssl_staff_member_create_css_on_switch_theme');
 }
 ?>

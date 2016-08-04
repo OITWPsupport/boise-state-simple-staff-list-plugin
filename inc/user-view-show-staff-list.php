@@ -4,7 +4,7 @@ Plugin Name: Boise State Simple Staff List
 Plugin URI: www.boisestate.edu
 */
 
-function sslp_staff_member_listing_shortcode_func($atts) {
+function boise_state_ssl_staff_member_listing_shortcode_func($atts) {
 	extract(shortcode_atts(array(
 	  'single' => 'no',
 	  'group' => '',
@@ -155,6 +155,6 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 	
 	return do_shortcode($output);
 }
-add_shortcode('boise-state-simple-staff-list', 'sslp_staff_member_listing_shortcode_func');
+add_shortcode('boise-state-simple-staff-list', 'boise_state_ssl_staff_member_listing_shortcode_func');
 
 ?>
