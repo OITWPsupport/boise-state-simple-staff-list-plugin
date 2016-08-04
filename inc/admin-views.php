@@ -124,7 +124,7 @@ function sslp_staff_member_display_custom_columns( $column ) {
 function sslp_staff_member_order_page() {
 ?>
 	<div class="wrap">
-		<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>Simple Staff List</h2>
+		<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>Boise State Simple Staff List</h2>
 		<h2>Order Staff</h2>
 		<p>Simply drag the staff member up or down and they will be saved in that order.</p>
 	<?php $staff = new WP_Query( array( 'post_type' => 'staff-member', 'posts_per_page' => -1, 'order' => 'ASC', 'orderby' => 'menu_order' ) );
@@ -194,20 +194,20 @@ function sslp_staff_member_order_page() {
 function sslp_staff_member_usage_page() {
 	
 	$output .= '<div class="wrap sslp-usage">';
-	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Simple Staff List', 'simple-staff-list' ) . '</h2>';
+	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Boise State Simple Staff List', 'boise-state-simple-staff-list' ) . '</h2>';
 	$output .= '<h2>' . __( 'Usage' ) . '</h2>';
-	$output .= '<p>' . __( 'The Simple Staff List plugin makes it easy to create and display a staff directory on your website. You can create your own <a href="edit.php?post_type=staff-member&page=staff-member-template" title="Edit the Simple Staff List template.">template</a> for displaying staff information as well as <a href="edit.php?post_type=staff-member&page=staff-member-usage" title="Edit Custom CSS for Simple Staff List">add custom css</a> styling to make your staff directory look great.' ) . '</p>';
+	$output .= '<p>' . __( 'The Boise State Simple Staff List plugin makes it easy to create and display a staff directory on your website. You can create your own <a href="edit.php?post_type=staff-member&page=staff-member-template" title="Edit the Boise State Simple Staff List template.">template</a> for displaying staff information as well as <a href="edit.php?post_type=staff-member&page=staff-member-usage" title="Edit Custom CSS for Boise State Simple Staff List">add custom css</a> styling to make your staff directory look great.' ) . '</p>';
 	
 	$output .= '<h3>' . __( 'Shortcode' ) . '</h3>';
 	$output .= '<table><tbody>';
-	$output .= '<tr><td width="280px"><code>[simple-staff-list]</code></td><td>' . __( 'This is the most basic usage of Simple Staff List. Displays all Staff Members on post or page.' ) . '</td></tr>';
-	$output .= '<tr><td><code>[simple-staff-list <strong>group="Robots"</strong>]</code></td><td>' . __( 'This displays all Staff Members from the group "Robots" sorted by order on the "Order" page. This will also add a class of "Robots" to the outer Staff List container for styling purposes.' ) . '</td></tr>';
-	$output .= '<tr><td><code>[simple-staff-list <strong>wrap_class="clearfix"</strong>]</code></td><td>' . __( 'This adds a class to the inner Staff Member wrap.' ) . '</td></tr>';
-	$output .= '<tr><td><code>[simple-staff-list <strong>order="ASC"</strong>]</code></td><td>' . __( 'This displays Staff Members sorted by ascending or descending order according to the "Order" page. You may use "ASC" or "DESC" but the default is "ASC"' ) . '</td></tr>';
+	$output .= '<tr><td width="280px"><code>[boise-state-simple-staff-list]</code></td><td>' . __( 'This is the most basic usage of Boise State Simple Staff List. Displays all Staff Members on post or page.' ) . '</td></tr>';
+	$output .= '<tr><td><code>[boise-state-simple-staff-list <strong>group="Robots"</strong>]</code></td><td>' . __( 'This displays all Staff Members from the group "Robots" sorted by order on the "Order" page. This will also add a class of "Robots" to the outer Staff List container for styling purposes.' ) . '</td></tr>';
+	$output .= '<tr><td><code>[boise-state-simple-staff-list <strong>wrap_class="clearfix"</strong>]</code></td><td>' . __( 'This adds a class to the inner Staff Member wrap.' ) . '</td></tr>';
+	$output .= '<tr><td><code>[boise-state-simple-staff-list <strong>order="ASC"</strong>]</code></td><td>' . __( 'This displays Staff Members sorted by ascending or descending order according to the "Order" page. You may use "ASC" or "DESC" but the default is "ASC"' ) . '</td></tr>';
 	
 	$output .= '</tbody></table>';
 	
-	$output .= '<p>' . __( 'To display your Staff List just use the shortcode <code>[simple-staff-list]</code> in any page or post. This will output all staff members according to the template options set <a href="edit.php?post_type=staff-member&page=staff-member-template" title="Edit the Simple Staff List template.">here' ) . '</a>.</p>';
+	$output .= '<p>' . __( 'To display your Staff List just use the shortcode <code>[boise-state-simple-staff-list]</code> in any page or post. This will output all staff members according to the template options set <a href="edit.php?post_type=staff-member&page=staff-member-template" title="Edit the Simple Staff List template.">here' ) . '</a>.</p>';
 	
 	$output .= '<p></p>';
 
@@ -297,7 +297,7 @@ function sslp_staff_member_template_page(){
 	}
 	
 	$output .= '<div class="wrap sslp-template">';
-	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Simple Staff List' ) . '</h2>';
+	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Boise State Simple Staff List' ) . '</h2>';
 	$output .= '<h2>Templates</h2>';
     
     $output .= '<div>';
@@ -311,7 +311,7 @@ function sslp_staff_member_template_page(){
 
     $output .= '<br />';
         
-    $output .= '<p>' . __( 'These <strong>MUST</strong> be used inside the <code>[staff_loop]</code> wrapper. The unformatted tags will return plain strings so you will want to wrap them in your own HTML. The <code>[staff_loop]</code> can accept any HTML so be careful when adding your own HTML code. The formatted tags will return data wrapped in HTML elements. For example, <code>[staff-name-formatted]</code> returns <code>&lt;h3&gt;STAFF-NAME&lt;/h3&gt;</code>, and <code>[staff-email-link]</code> returns <code>&lt;a href="mailto:STAFF-EMAIL" title="Email STAFF-NAME"&gt;STAFF-EMAIL&lt;/a&gt;</code>.' ) . '</p>';
+    $output .= '<p>' . __( 'These <strong>MUST</strong> be used inside the <code>[staff_loop]</code> wrapper. The unformatted tags will return plain strings so you will want to wrap them in your own HTML. The <code>[staff_loop]</code> can accept any HTML so be careful when adding your own HTML code. The formatted tags will return data wrapped in HTML elements. For example, <code>[staff-name-formatted]</code> returns <code>&lt;div&gt;STAFF-NAME&lt;/div&gt;</code>, and <code>[staff-email-link]</code> returns <code>&lt;a href="mailto:STAFF-EMAIL" title="Email STAFF-NAME"&gt;STAFF-EMAIL&lt;/a&gt;</code>.' ) . '</p>';
     $output .= '<p>' . __( '**Note: All emails are obfuscated using the <a href="http://codex.wordpress.org/Function_Reference/antispambot" target="_blank" title="WordPress email obfuscation function: antispambot()">antispambot() WordPress function</a>.' ) . '</p>';
     $output .= '<br />';
     
@@ -385,7 +385,7 @@ function sslp_staff_member_options_page(){
 	
 	
 	$output .= '<div class="wrap sslp-options">';
-	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Simple Staff List' ) . '</h2>';
+	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Boise State Simple Staff List' ) . '</h2>';
 	$output .= '<h2>Options</h2>';
     
     $output .= '<div>';

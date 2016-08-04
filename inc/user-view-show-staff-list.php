@@ -88,8 +88,6 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 		$fb_url		= $custom["_staff_member_fb"][0];
 		$tw_url		= $custom["_staff_member_tw"][0];
 		
-		//printf("Initial values: name: $name/slug: $name_slug/title: $title/email: $email/phone: $phone/bio: $bio/fb: $fb_url/tw: $tw_url<p/>");
-		
 		if(has_post_thumbnail()){
 			
 			$photo_url = wp_get_attachment_url( get_post_thumbnail_id() );
@@ -121,20 +119,23 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 			$tw_url = 'http://www.twitter.com/' . $tw_url;
 		}
 		if ($name !== '') {
-			$name = '<h3 class="staff-member-name">'.$name.'</h3>';
+			$name = '<div class="staff-member-name">'.$name.'</div>';
 		}
 		if ($title !== '') {
-			$title = '<h4 class="staff-member-position">'.$title.'</h4>';
+			$title = '<div class="staff-member-position">'.$title.'</div>';
+		}
+        if ($phone !== '') {
+			$phone = '<div class="staff-member-phone">'.$phone.'</div>';
 		}
 
 		$accepted_formatted_tags = $default_formatted_tags;
-		$replace_formatted_values = array($name, $title, $photo, $email_mailto, $bio_format );
-	
+		$replace_formatted_values = array($name, $title, $photo, $email_mailto, $bio_format, $phone, $fb_url, $tw_url );
+      
 		$loop_markup = str_replace($accepted_single_tags, $replace_single_values, $loop_markup);
 		$loop_markup = str_replace($accepted_formatted_tags, $replace_formatted_values, $loop_markup);
-	
-		$output .= $loop_markup;
-	
+      
+	    $output .= $loop_markup;
+      
 		$loop_markup = $loop_markup_reset;
 		
 		
@@ -154,6 +155,6 @@ function sslp_staff_member_listing_shortcode_func($atts) {
 	
 	return do_shortcode($output);
 }
-add_shortcode('simple-staff-list', 'sslp_staff_member_listing_shortcode_func');
+add_shortcode('boise-state-simple-staff-list', 'sslp_staff_member_listing_shortcode_func');
 
 ?>

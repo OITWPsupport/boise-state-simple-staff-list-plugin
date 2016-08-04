@@ -8,7 +8,7 @@ Requires at least: 3.0
 
 Tested up to: 4.1.1
 
-Stable tag: 11.6
+Stable tag: 1.0
 
 License: GPLv2 or later
 
@@ -26,6 +26,10 @@ Thanks to Brett Shumaker for developing the original Simple Staff List plugin (h
 Thanks to Robby Milo for the initial streamlining of the plugin for Boise State.
 
 
+-- 0.2:
+- Got rid of out-of-order headers
+- Made accessible css
+- Got rid of empty tags
 
 -- 0.1:
 - Refactored plugin name to start with Boise State
