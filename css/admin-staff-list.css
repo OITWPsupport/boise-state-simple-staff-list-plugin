@@ -96,8 +96,8 @@ td.column-order img {
 
 /* Admin Menu - 16px */
 #menu-posts-staff-member .wp-menu-image {
-	background: url('../_images/staff-list-icon.png') no-repeat 5px 5px !important;
-    background: url('../_images/staff-list-icon.svg') no-repeat 5px 5px !important;
+	background: url('../images/staff-list-icon.png') no-repeat 5px 5px !important;
+    background: url('../images/staff-list-icon.svg') no-repeat 5px 5px !important;
     background-size: 70% !important;
     opacity: .5;
 }
@@ -107,14 +107,14 @@ td.column-order img {
 }
 
 #menu-posts-staff-member.wp-has-current-submenu .wp-menu-image {
-    background: url('../_images/staff-list-icon-lighter.png') no-repeat 5px 5px !important;
-    background: url('../_images/staff-list-icon-lighter.svg') no-repeat 5px 5px !important;
+    background: url('../images/staff-list-icon-lighter.png') no-repeat 5px 5px !important;
+    background: url('../images/staff-list-icon-lighter.svg') no-repeat 5px 5px !important;
     background-size: 70% !important;
 }
 /* Post Screen - 32px */
 .icon32-posts-staff-member {
-	background: url('../_images/staff-list-icon.png') no-repeat left top !important;
-    background: url('../_images/staff-list-icon.svg') no-repeat left top !important;
+	background: url('../images/staff-list-icon.png') no-repeat left top !important;
+    background: url('../images/staff-list-icon.svg') no-repeat left top !important;
     background-size: 100% !important;
     height: 32px;
     width: 32px;

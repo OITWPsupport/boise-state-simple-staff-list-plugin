@@ -147,7 +147,7 @@ function sslp_staff_member_order_page() {
 				  $custom = get_post_custom();
 			?>
 				<tr id="post-<?php the_ID(); ?>">
-					<td class="column-order"><img src="<?php echo STAFFLIST_PATH . '_images/move-icon.png'; ?>" title="" alt="Move Icon" width="24" height="24" class="" /></td>
+					<td class="column-order"><img src="<?php echo STAFFLIST_PATH . 'images/move-icon.png'; ?>" title="" alt="Move Icon" width="24" height="24" class="" /></td>
 					<td class="column-photo"><?php echo get_the_post_thumbnail( $post->ID, array( 75, 75 ) ); ?></td>
 					<td class="column-name"><strong><?php the_title(); ?></strong></td>
 					<td class="column-title"><?php echo $custom["_staff_member_title"][0]; ?></td>

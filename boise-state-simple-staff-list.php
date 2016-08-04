@@ -3,7 +3,7 @@
 Plugin Name: Boise State Simple Staff List
 Plugin URI: www.boisestate.edu
 Description: A simple plugin to build and display a staff listing for your website, optimized for BSU.
-Version: 1.0
+Version: 0.8
 Author: Jen West
 
 */
