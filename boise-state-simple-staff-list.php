@@ -4,7 +4,7 @@
 * Plugin Name:	Boise State Simple Staff List
 * Plugin URI:	www.boisestate.edu
 * Description:	A simple plugin to build and display a staff listing for your website, optimized for BSU.
-* Version:		0.8
+* Version:		0.8.1
 * Author:		Jen West
 **/
 
@@ -71,7 +71,7 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
         'raw_url' => 'https://raw.github.com/JenMiriel/BSU_SimpleStaffList/master', // the github raw url of your github repo
         'github_url' => 'https://github.com/JenMiriel/BSU_SimpleStaffList', // the github url of your github repo
         'zip_url' => 'https://github.com/JenMiriel/BSU_SimpleStaffList/zipball/master', // the zip url of the github repo
-        'sslverify' => true // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
+        'sslverify' => true, // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
         'requires' => '3.0', // which version of WordPress does your plugin require?
         'tested' => '4.5.3', // which version of WordPress is your plugin tested up to?
         'readme' => 'README.MD' // which file to use as the readme for the version number

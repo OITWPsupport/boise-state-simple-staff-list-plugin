@@ -11,9 +11,9 @@ Plugin URI: www.boisestate.edu
 //////  Register and write the AJAX callback function to actually update the posts on sort.
 /////	
 		
-		add_action( 'wp_ajax_staff_member_update_post_order', 'sslp_staff_member_update_post_order' );
+		add_action( 'wp_ajax_staff_member_update_post_order', 'boise_state_ssl_staff_member_update_post_order' );
 		
-		function sslp_staff_member_update_post_order() {
+		function boise_state_ssl_staff_member_update_post_order() {
 			global $wpdb;
 		
 			$post_type     = $_POST['postType'];
@@ -38,12 +38,12 @@ Plugin URI: www.boisestate.edu
 //////  Save Custom Post Type Fields
 //////
 		
-		add_action('save_post', 'sslp_save_staff_member_details');
+		add_action('save_post', 'boise_state_ssl_save_staff_member_details');
 		
-		function sslp_save_staff_member_details(){
+		function boise_state_ssl_save_staff_member_details(){
 			global $post;
 			
-			if ( !isset( $_POST['sslp_add_edit_staff_member_noncename'] ) || !wp_verify_nonce( $_POST['sslp_add_edit_staff_member_noncename'], 'sslp_post_nonce' ) ) {
+			if ( !isset( $_POST['boise_state_ssl_add_edit_staff_member_noncename'] ) || !wp_verify_nonce( $_POST['boise_state_ssl_add_edit_staff_member_noncename'], 'boise_state_ssl_post_nonce' ) ) {
 				return;
 			}
 			
