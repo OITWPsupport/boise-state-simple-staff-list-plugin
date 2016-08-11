@@ -31,8 +31,9 @@ function boise_state_ssl_staff_member_activate($is_forced){
 	<div class="staff-member-info-wrap">
 		[staff-name-formatted]
 		[staff-position-formatted]
-		[staff-bio-formatted]
+		[staff-phone]
 		[staff-email-link]
+		[staff-bio-formatted]
 	</div>
 [/staff_loop]';
 	
