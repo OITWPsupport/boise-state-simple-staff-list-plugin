@@ -71,11 +71,11 @@ if ($boise_state_ssl_ver_option == "" || $boise_state_ssl_ver_option <= $plugin_
 if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
         'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'BSUSimpleStaffList', // this is the name of the folder your plugin lives in
-        'api_url' => 'https://api.github.com/repos/JenMiriel/BSU_SimpleStaffList', // the github API url of your github repo
-        'raw_url' => 'https://raw.github.com/JenMiriel/BSU_SimpleStaffList/master', // the github raw url of your github repo
-        'github_url' => 'https://github.com/JenMiriel/BSU_SimpleStaffList', // the github url of your github repo
-        'zip_url' => 'https://github.com/JenMiriel/BSU_SimpleStaffList/zipball/master', // the zip url of the github repo
+        'proper_folder_name' => 'boise-state-simple-staff-list', // this is the name of the folder your plugin lives in
+        'api_url' => 'https://api.github.com/repos/JenMiriel/Boise-State-Simple-Staff-List', // the github API url of your github repo
+        'raw_url' => 'https://raw.github.com/JenMiriel/Boise-State-Simple-Staff-List/master', // the github raw url of your github repo
+        'github_url' => 'https://github.com/JenMiriel/Boise-State-Simple-Staff-List', // the github url of your github repo
+        'zip_url' => 'https://github.com/JenMiriel/Boise-State-Simple-Staff-List/zipball/master', // the zip url of the github repo
         'sslverify' => true, // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
         'requires' => '3.0', // which version of WordPress does your plugin require?
         'tested' => '4.5.3', // which version of WordPress is your plugin tested up to?
