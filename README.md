@@ -4,7 +4,7 @@ Author: Jen West
 
 Tags: staff list, staff directory, employee list, staff, employee, employees, Boise State 
 
-~Current Version:1.0.2~
+~Current Version:1.0.3~
 
 Requires at least: 3.0
 

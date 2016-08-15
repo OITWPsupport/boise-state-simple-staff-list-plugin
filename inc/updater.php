@@ -1,6 +1,11 @@
 <?php
 // Thanks to https://www.smashingmagazine.com/2015/08/deploy-wordpress-plugins-with-github-using-transients/
-class Boise_State_Plugin_Updater {
+
+// Prevent loading this file directly and/or if the class is already defined
+if ( ! defined( 'ABSPATH' ) || class_exists( 'BoiseStateSSLPluginUpdater' ) || class_exists( 'Boise_State_SSL_Plugin_Updater' ) )
+	return;
+
+class Boise_State_SSL_Plugin_Updater {
 	private $file;
 	private $plugin;
 	private $basename;
