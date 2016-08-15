@@ -4,7 +4,7 @@
 * Plugin Name:	Boise State Simple Staff List
 * Plugin URI:	https://github.com/JenMiriel/Boise-State-Simple-Staff-List
 * Description:	A simple plugin to build and display a staff listing for your website, optimized for BSU.
-* Version:		1.0
+* Version:		1.0.2
 * Author:		Jen West
 * Author URI:  http://www.boisestate.edu
 * License:     GPL2
@@ -13,6 +13,15 @@
 * Text Domain: my-toolset
 **/
 
+defined( 'ABSPATH' ) or die( 'Not to be used for the other use.' );
+
+if( ! class_exists( 'Boise_State_Plugin_Updater' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
+}
+$updater = new Boise_State_Plugin_Updater( __FILE__ );
+$updater->set_username( 'JenMiriel' );
+$updater->set_repository( 'Boise-State-Simple-Staff-List' );
+$updater->initialize();
 
 
 
@@ -68,7 +77,7 @@ if ($boise_state_ssl_ver_option == "" || $boise_state_ssl_ver_option <= $plugin_
 // End plugin version check
 
 //Check the BSU GitHub repo for updates to this plugin
-if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
+/*if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
         'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
         'proper_folder_name' => 'boise-state-simple-staff-list', // this is the name of the folder your plugin lives in
@@ -82,7 +91,7 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
         'readme' => 'README.MD' // which file to use as the readme for the version number
     );
     new WP_GitHub_Updater($config);
-}
+}*/
 //End BSU GitHub repo check
 
 

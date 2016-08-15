@@ -4,7 +4,7 @@ Author: Jen West
 
 Tags: staff list, staff directory, employee list, staff, employee, employees, Boise State 
 
-~Current Version:1.0~
+~Current Version:1.0.2~
 
 Requires at least: 3.0
 
@@ -27,9 +27,8 @@ Thanks to Brett Shumaker for developing the original Simple Staff List plugin (h
 
 Thanks to Robby Milo for the initial streamlining of the plugin for Boise State.
 
-Thanks to Joachim Kudish for GitHub Plugin Updater (https://github.com/radishconcepts/WordPress-GitHub-Plugin-Updater)
 
--- 1.0:
+-- 1.0.x:
 - Gave hooks unique names for plugin
 - Added updater script
 - Misc bug fixes
