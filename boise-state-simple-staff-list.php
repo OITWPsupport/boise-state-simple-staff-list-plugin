@@ -61,40 +61,6 @@ register_activation_hook( __FILE__, 'boise_state_ssl_staff_member_activate' );
 register_deactivation_hook( __FILE__, 'boise_state_ssl_staff_member_deactivate' );
 register_uninstall_hook( __FILE__, 'boise_state_ssl_staff_member_uninstall' );
 
-// Need to check plugin version here and run boise_state_ssl_staff_member_plugin_update()
-// function location: /inc/admin-install-uninstall.php
-/*if ( ! function_exists( 'get_plugins' ) )
-	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-$plugin_folder = get_plugins( '/' . plugin_basename( dirname( __FILE__ ) ) );
-$plugin_file = basename( ( __FILE__ ) );
-$plugin_version = $plugin_folder[$plugin_file]['Version'];    
-$boise_state_ssl_ver_option = get_option('_simple_staff_list_version');
-if ($boise_state_ssl_ver_option == "" || $boise_state_ssl_ver_option <= $plugin_version){
-	boise_state_ssl_staff_member_plugin_update($boise_state_ssl_ver_option, $plugin_version);
-}
-*/
-// End plugin version check
-
-//Check the BSU GitHub repo for updates to this plugin
-/*if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
-    $config = array(
-        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'boise-state-simple-staff-list', // this is the name of the folder your plugin lives in
-        'api_url' => 'https://api.github.com/repos/JenMiriel/Boise-State-Simple-Staff-List', // the github API url of your github repo
-        'raw_url' => 'https://raw.github.com/JenMiriel/Boise-State-Simple-Staff-List/master', // the github raw url of your github repo
-        'github_url' => 'https://github.com/JenMiriel/Boise-State-Simple-Staff-List', // the github url of your github repo
-        'zip_url' => 'https://github.com/JenMiriel/Boise-State-Simple-Staff-List/zipball/master', // the zip url of the github repo
-        'sslverify' => true, // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
-        'requires' => '3.0', // which version of WordPress does your plugin require?
-        'tested' => '4.5.3', // which version of WordPress is your plugin tested up to?
-        'readme' => 'README.MD' // which file to use as the readme for the version number
-    );
-    new WP_GitHub_Updater($config);
-}*/
-//End BSU GitHub repo check
-
-
 
 /*
 // Enqueue Plugin Scripts and Styles
@@ -178,6 +144,8 @@ function boise_state_ssl_staff_member_init() {
     );
 
     register_post_type( 'staff-member', $args );
+    
+    
 }
 
 
