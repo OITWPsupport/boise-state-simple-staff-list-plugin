@@ -15,14 +15,17 @@
 
 defined( 'ABSPATH' ) or die( 'Not to be used for the other use.' );
 
-if( ! class_exists( 'Boise_State_SSL_Plugin_Updater' ) ){
+/*if( ! class_exists( 'Boise_State_SSL_Plugin_Updater' ) ){
 	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
 $updater = new Boise_State_SSL_Plugin_Updater( __FILE__ );
 $updater->set_username( 'OITWPsupport' );
 $updater->set_repository( 'boise-state-simple-staff-list' );
-$updater->initialize();
-
+$updater->initialize();*/
+require_once( 'inc/BSUSSL_BFIGitHubPluginUpdater.php' );
+if ( is_admin() ) {
+    new BSUSSL_BFIGitHubPluginUpdater( __FILE__, 'OITWPsupport', "boise-state-simple-staff-list-plugin" );
+}
 
 
 
