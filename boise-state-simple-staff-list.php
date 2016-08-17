@@ -2,9 +2,9 @@
 
 /**
 * Plugin Name:	Boise State Simple Staff List
-* Plugin URI:	https://github.com/JenMiriel/Boise-State-Simple-Staff-List
+* Plugin URI:	https://github.com/OITWPsupport/boise-state-simple-staff-list-plugin
 * Description:	A simple plugin to build and display a staff listing for your website, optimized for BSU.
-* Version:		1.0.3
+* Version:		1.0.4
 * Author:		Jen West
 * Author URI:  http://www.boisestate.edu
 * License:     GPL2
@@ -19,8 +19,8 @@ if( ! class_exists( 'Boise_State_SSL_Plugin_Updater' ) ){
 	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
 $updater = new Boise_State_SSL_Plugin_Updater( __FILE__ );
-$updater->set_username( 'JenMiriel' );
-$updater->set_repository( 'Boise-State-Simple-Staff-List' );
+$updater->set_username( 'OITWPsupport' );
+$updater->set_repository( 'boise-state-simple-staff-list' );
 $updater->initialize();
 
 

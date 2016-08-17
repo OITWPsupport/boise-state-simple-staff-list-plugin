@@ -4,7 +4,7 @@ Author: Jen West
 
 Tags: staff list, staff directory, employee list, staff, employee, employees, Boise State 
 
-~Current Version:1.0.3~
+~Current Version:1.0.4~
 
 Requires at least: 3.0
 
@@ -19,6 +19,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ---- Description ----
 
 A simple plugin to build and display a staff listing for your department at Boise State University.  
+https://github.com/OITWPsupport/boise-state-simple-staff-list-plugin
 
 
 ---- Thanks ----
