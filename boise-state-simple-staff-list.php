@@ -4,7 +4,7 @@
 * Plugin Name:	Boise State Simple Staff List
 * Plugin URI:	https://github.com/OITWPsupport/boise-state-simple-staff-list-plugin
 * Description:	A simple plugin to build and display a staff listing for your website, optimized for BSU.
-* Version:		1.0.6
+* Version:		1.0.7
 * Author:		Jen West
 * Author URI:  http://www.boisestate.edu
 * License:     GPL2
